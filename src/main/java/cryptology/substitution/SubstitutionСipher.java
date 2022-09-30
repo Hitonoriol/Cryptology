@@ -14,7 +14,7 @@ public abstract class SubstitutionСipher {
 	public String getAlphabet() {
 		return alphabet;
 	}
-	
+
 	protected final void appendToAlphabet(String suffix) {
 		alphabet += suffix;
 	}
@@ -42,14 +42,22 @@ public abstract class SubstitutionСipher {
 		Ukrainian("абвгґдеєжзиіїйклмнопрстуфхцчшщьюя"),
 		Russian("абвгдеёжзийклмнопрстуфхцчшщъыьэюя");
 
+		private final static String punctuators = " ,.";
+
 		private String letters;
+		private String lettersWithPunctuators;
 
 		Alphabet(String letters) {
 			this.letters = letters;
+			this.lettersWithPunctuators = letters + punctuators;
 		}
 
 		public String getLetters() {
 			return letters;
+		}
+		
+		public String getLettersAndPunctuators() {
+			return lettersWithPunctuators;
 		}
 	}
 }
