@@ -18,6 +18,10 @@ public class Out {
 		System.out.print(String.format(format, args));
 	}
 	
+	public static void print(String text) {
+		System.out.println(text);
+	}
+	
 	public static void print(String format, Object... args) {
 		write(format, args);
 		System.out.println();
