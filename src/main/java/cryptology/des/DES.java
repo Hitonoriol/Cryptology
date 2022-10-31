@@ -2,7 +2,7 @@ package cryptology.des;
 
 import cryptology.io.Out;
 import cryptology.util.Convert;
-import cryptology.util.text.Text;
+import cryptology.util.message.Message;
 
 public class DES {
 	private static final int BLOCK_LENGTH = 64;
@@ -144,15 +144,15 @@ public class DES {
 
 	public DES() {}
 
-	public Text encrypt(String key, Text plaintext) {
+	public Message encrypt(String key, Message plaintext) {
 		return processText(Operation.Encrypt, key, plaintext);
 	}
 
-	public Text decrypt(String key, Text plaintext) {
+	public Message decrypt(String key, Message plaintext) {
 		return processText(Operation.Decrypt, key, plaintext).trim();
 	}
 
-	private Text processText(Operation operation, String key, Text plaintext) {
+	private Message processText(Operation operation, String key, Message plaintext) {
 		var startTime = System.currentTimeMillis();
 		previewRounds = maxPreviewRounds;
 		String textBits = Convert.bytesToBin(plaintext);

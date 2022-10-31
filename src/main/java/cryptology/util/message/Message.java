@@ -1,4 +1,4 @@
-package cryptology.util.text;
+package cryptology.util.message;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -11,38 +11,38 @@ import java.util.HexFormat;
  * as a representation of bytes in certain encoding.
  * The string is kept in sync with the byte array, not the other way around.
  */
-public class Text {
+public class Message {
 	private static final HexFormat hexFormat = HexFormat.ofDelimiter(" ");
 
 	private Charset encoding = StandardCharsets.UTF_8;
 	private byte[] bytes = {};
 	private String stringRepresentation = "";
 
-	public Text() {}
+	public Message() {}
 
-	public Text(Charset encoding) {
+	public Message(Charset encoding) {
 		this.encoding = encoding;
 	}
 
-	public Text(byte[] bytes) {
+	public Message(byte[] bytes) {
 		set(bytes);
 	}
 
-	public Text(byte[] bytes, Charset encoding) {
+	public Message(byte[] bytes, Charset encoding) {
 		this.encoding = encoding;
 		set(bytes);
 	}
 
-	public Text(String string) {
+	public Message(String string) {
 		set(string);
 	}
 
-	public Text(String string, Charset encoding) {
+	public Message(String string, Charset encoding) {
 		this.encoding = encoding;
 		set(string);
 	}
 
-	public void set(Text rhs) {
+	public void set(Message rhs) {
 		encoding = rhs.encoding;
 		bytes = rhs.bytes;
 		stringRepresentation = rhs.stringRepresentation;
@@ -62,7 +62,7 @@ public class Text {
 		bytesChanged();
 	}
 
-	public Text trim() {
+	public Message trim() {
 		int l = 0;
 		while (bytes[l] == 0x0)
 			++l;

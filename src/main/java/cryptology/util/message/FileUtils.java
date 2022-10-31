@@ -1,4 +1,4 @@
-package cryptology.util.text;
+package cryptology.util.message;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -8,20 +8,20 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class FileUtils {
-	public static Text read(String filePath, Charset charset) {
+	public static Message read(String filePath, Charset charset) {
 		try {
-			return new Text(Files.readAllBytes(Paths.get(filePath)), charset);
+			return new Message(Files.readAllBytes(Paths.get(filePath)), charset);
 		} catch (IOException e) {
 			e.printStackTrace();
-			return new Text();
+			return new Message();
 		}
 	}
 
-	public static Text read(String filePath) {
+	public static Message read(String filePath) {
 		return read(filePath, StandardCharsets.UTF_8);
 	}
 
-	public static void write(String filePath, Text contents) {
+	public static void write(String filePath, Message contents) {
 		try (var outputStream = new FileOutputStream(filePath)) {
 			outputStream.write(contents.getBytes());
 		} catch (IOException e) {

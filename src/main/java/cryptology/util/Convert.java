@@ -1,6 +1,6 @@
 package cryptology.util;
 
-import cryptology.util.text.Text;
+import cryptology.util.message.Message;
 
 public class Convert {
 	public static byte[] binToBytes(String bin) {
@@ -14,7 +14,7 @@ public class Convert {
 		return ciphertextBytes;
 	}
 
-	public static String bytesToBin(Text utf) {
+	public static String bytesToBin(Message utf) {
 		byte[] bytes = utf.getBytes();
 		String bin = "";
 		for (int i = 0; i < bytes.length; i++) {

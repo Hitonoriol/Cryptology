@@ -14,14 +14,14 @@ import org.apache.commons.lang3.mutable.MutableInt;
 
 import consoleapp.ConsoleApplication;
 import cryptology.io.Out;
-import cryptology.util.text.FileUtils;
-import cryptology.util.text.Text;
+import cryptology.util.message.FileUtils;
+import cryptology.util.message.Message;
 
 public class DESApplication extends ConsoleApplication {
 	private static final String ROOT_DIR = "data";
 	private static final String DEFAULT_MSG = "msg", DEFAULT_KEY = "key";
 	private Charset encoding = StandardCharsets.UTF_8;
-	private Text msg = new Text(encoding), key = new Text(encoding);
+	private Message msg = new Message(encoding), key = new Message(encoding);
 	private DES des = new DES();
 
 	public DESApplication() {
@@ -103,7 +103,7 @@ public class DESApplication extends ConsoleApplication {
 		}
 	}
 
-	private Text load(String filePath, FileType type) {
+	private Message load(String filePath, FileType type) {
 		var path = pathTo(filePath, type);
 		var text = FileUtils.read(path, encoding);
 		Out.print("Файл с %s загружен из `%s`.",
@@ -111,7 +111,7 @@ public class DESApplication extends ConsoleApplication {
 		return text;
 	}
 
-	private void save(String filePath, FileType type, Text text) {
+	private void save(String filePath, FileType type, Message text) {
 		if (filePath == null)
 			filePath = System.currentTimeMillis() + "";
 		filePath = pathTo(filePath, type);
@@ -124,7 +124,7 @@ public class DESApplication extends ConsoleApplication {
 		return ROOT_DIR + File.separator + file + type.extension();
 	}
 
-	private void showText(Text text, String showAs) {
+	private void showText(Message text, String showAs) {
 		if (showAs == null)
 			Out.print(text.toString());
 		else {
