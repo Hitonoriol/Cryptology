@@ -6,16 +6,22 @@ import java.util.Arrays;
 
 import cryptology.des.DESApplication;
 import cryptology.io.Out;
+import cryptology.rsa.RSAApp;
 import cryptology.substitution.CaesarCipher;
 import cryptology.substitution.HomophonicCipher;
 import cryptology.substitution.PlayfairCipher;
 import cryptology.substitution.PolybiusSquareCipher;
 import cryptology.substitution.SloganCipher;
+import cryptology.substitution.SubstitutionСipher.Alphabet;
 import cryptology.substitution.TrithemiusCipher;
 import cryptology.substitution.VigenereCipher;
-import cryptology.substitution.SubstitutionСipher.Alphabet;
 
 public class Demo {
+	public static void RSA() {
+		var rsa = new RSAApp();
+		rsa.listenForCommands();
+	}
+	
 	public static void DES() {
 		var des = new DESApplication();
 		des.listenForCommands();

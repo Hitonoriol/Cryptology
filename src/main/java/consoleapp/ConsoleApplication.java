@@ -5,11 +5,12 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 import java.util.function.Consumer;
 
 public abstract class ConsoleApplication {
 	private Map<String, CommandConsumer> commands = new HashMap<>();
-	private Map<String, String> help = new LinkedHashMap<>();
+	private Map<String, String> help = new TreeMap<>();
 
 	private String cmdDelim = " ", multiCmdDelim = ";";
 	private String helpCmd = "help", exitCmd = "exit";

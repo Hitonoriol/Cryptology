@@ -2,7 +2,9 @@ package cryptology.app;
 
 public enum FileType {
 	text(".txt"),
-	key(".key");
+	key(".key"),
+	privateKey(".prv"),
+	publicKey(".pub");
 
 	private final String fileExt;
 
