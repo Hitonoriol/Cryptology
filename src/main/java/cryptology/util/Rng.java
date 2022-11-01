@@ -3,6 +3,8 @@ package cryptology.util;
 import java.math.BigInteger;
 import java.util.Random;
 
+import cryptology.io.Out;
+
 public class Rng {
 	private static final Random random = new Random();
 
@@ -11,15 +13,11 @@ public class Rng {
 	}
 
 	public static BigInteger nextBelow(BigInteger n) {
-		byte[] bytes = n.toByteArray();
+		var length = n.bitLength();
 		BigInteger num;
-
 		do {
-			random.nextBytes(bytes);
-			num = new BigInteger(bytes);
-			num.clearBit(num.bitLength() - 1);
+			num = new BigInteger(length, random);
 		} while (num.compareTo(n) >= 0 || num.compareTo(BigInteger.ZERO) < 0);
-
 		return num;
 	}
 

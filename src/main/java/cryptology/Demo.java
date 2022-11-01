@@ -5,6 +5,7 @@ import static cryptology.util.CipherTest.cipher;
 import java.util.Arrays;
 
 import cryptology.des.DESApplication;
+import cryptology.diffiehellman.DiffieHellmanApp;
 import cryptology.io.Out;
 import cryptology.rsa.RSAApp;
 import cryptology.substitution.CaesarCipher;
@@ -17,14 +18,16 @@ import cryptology.substitution.TrithemiusCipher;
 import cryptology.substitution.VigenereCipher;
 
 public class Demo {
+	public static void DiffieHellman() {
+		new DiffieHellmanApp().listenForCommands();
+	}
+	
 	public static void RSA() {
-		var rsa = new RSAApp();
-		rsa.listenForCommands();
+		new RSAApp().listenForCommands();
 	}
 	
 	public static void DES() {
-		var des = new DESApplication();
-		des.listenForCommands();
+		new DESApplication().listenForCommands();
 	}
 
 	public static void substitutionCiphers() {

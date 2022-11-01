@@ -20,6 +20,10 @@ public class Arguments {
 	public boolean isPresent() {
 		return !isEmpty();
 	}
+	
+	public boolean hasNext() {
+		return currentArg + 1 < args.length;
+	}
 
 	public int getInt(int arg) {
 		return Integer.parseInt(args[arg]);
@@ -30,7 +34,7 @@ public class Arguments {
 	}
 
 	private int nextArgIdx() {
-		if (currentArg + 1 <= args.length)
+		if (currentArg < args.length)
 			return currentArg++;
 
 		return currentArg - 1;
